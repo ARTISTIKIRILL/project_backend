@@ -1,0 +1,113 @@
+.centralBlock {
+    display: block;
+    
+    background-color: lightblue;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    /*text-align: left;*/
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid lightcoral;
+    border-radius: 10px;
+    width:30%;
+}
+
+.navbar-custom {
+    background-color: #241F21 !important;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.avatar-circle {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.avatar-text {
+    font-weight: 600;
+}
+
+/* Иконки характеристик */
+.icon-wrapper {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Прогресс-бары */
+.progress {
+    background-color: #f0f0f0;
+}
+
+.progress-bar {
+    border-radius: 5px;
+}
+
+/* Карточки статистики */
+.card.bg-light {
+    transition: transform 0.2s;
+}
+
+.card.bg-light:hover {
+    transform: translateY(-5px);
+}
+
+/* Кнопка */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    padding: 12px 40px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+/* Отображение очков */
+.points-display .bg-light {
+    border: 1px solid #e9ecef;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .col-md-5.border-end {
+        border-right: none !important;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 2rem !important;
+    }
+    
+    .row.align-items-center.p-4 {
+        text-align: center;
+    }
+    
+    .row.align-items-center.p-4 .d-flex {
+        flex-direction: column;
+    }
+    
+    .avatar-circle.me-4 {
+        margin-right: 0 !important;
+        margin-bottom: 1rem;
+    }
+}

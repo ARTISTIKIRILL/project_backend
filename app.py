@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from werkzeug.security import generate_password_hash, check_password_hash
 from db import get_connection
 from datetime import datetime, timedelta
@@ -9,7 +9,6 @@ import secrets
 
 app = Flask(__name__)
 
-# Важно: правильная настройка для Flask-Login
 app.secret_key = secrets.token_hex(32)
 
 # Критически важные настройки сессии для Flask
@@ -34,13 +33,12 @@ app.config.update(
     WTF_CSRF_ENABLED=False  # Отключаем если не используем Flask-WTF
 )
 
-# Инициализация Flask-Login
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'signin'  # Имя функции для входа
 login_manager.session_protection = "strong"  # Защита сессии
 
-# Настройки CORS с явным указанием origins
+
 CORS(app, 
      supports_credentials=True,
      origins=["http://localhost:5500", "http://127.0.0.1:5500"],
@@ -424,18 +422,27 @@ def profile():
         "points": current_user.points
     })
 
-@app.route("/", methods=["GET"])
+
+# маршруты для раздачи статических файлов
+@app.route("/")
 def home():
-    return jsonify({
-        "message": "Сервер работает",
-        "endpoints": [
-            "POST /signin - авторизация",
-            "GET /check_auth - проверка авторизации",
-            "POST /logout - выход",
-            "POST /signup - регистрация",
-            "GET /profile - профиль пользователя"
-        ]
-    })
+    return render_template("index.html")
+
+@app.route("/question")
+def question_page():
+    return render_template("question.html")
+
+@app.route("/rating")
+def rating_page():
+    return render_template("rating.html")
+
+@app.route("/signin")
+def signin_page():
+    return render_template("signin.html")
+
+@app.route("/signup")
+def signup_page():
+    return render_template("signup.html")
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

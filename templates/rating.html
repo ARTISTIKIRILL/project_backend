@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Рейтинг</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">   
+    <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+
+  .item {
+    border: 2px solid #000;
+    padding: 12px;
+    margin: 12px auto;
+    width: 760px;
+    font-size: 16px;
+    background: #eee;
+  }
+
+  .item:nth-of-type(1) {
+    background: gold !important;
+  }
+
+  .item:nth-of-type(2) {
+    background: silver !important;
+  }
+
+  .item:nth-of-type(3) {
+    background: #cd7f32 !important;
+  }
+</style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">Image</a> -->
+            <img src="{{ url_for('static', filename='images/logo.png') }}" width="120" alt="Логотип сайта" class="me-3">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Главная</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('rating_page') }}">Рейтинг</a>
+                </li>
+            </ul>
+            <a href="{{ url_for('signin_page') }}"><button class="btn btn-outline-light" type="submit">Войти</button></a>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <main class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card mb-3 border-warning shadow-sm">
+                    <div class="card-body bg-warning bg-opacity-10">
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-warning text-dark fs-5 me-3">1</span>
+                            <div class="flex-grow-1">
+                            <h5 class="card-title mb-1">Человек 1</h5>
+                                <p class="card-text text-muted mb-0">Лицей №97, 11 класс</p>
+                            </div>
+                            <span class="badge bg-success fs-6">500 очков</span>
+                        </div>
+                    </div>
+              </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card mb-3 border-secondary shadow-sm">
+                    <div class="card-body bg-secondary bg-opacity-10">
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-secondary fs-5 me-3">2</span>
+                            <div class="flex-grow-1">
+                            <h5 class="card-title mb-1">Человек 2</h5>
+                                <p class="card-text text-muted mb-0">Лицей №97, 11 класс</p>
+                            </div>
+                            <span class="badge bg-success fs-6">250 очков</span>
+                        </div>
+                    </div>
+              </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card mb-3 border-danger shadow-sm">
+                    <div class="card-body bg-danger bg-opacity-10">
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-danger fs-5 me-3">3</span>
+                            <div class="flex-grow-1">
+                            <h5 class="card-title mb-1">Человек 3</h5>
+                                <p class="card-text text-muted mb-0">Лицей №97, 11 класс</p>
+                            </div>
+                            <span class="badge bg-success fs-6">100 очков</span>
+                        </div>
+                    </div>
+              </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card mb-3 border-secondary shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-primary fs-5 me-3">4</span>
+                            <div class="flex-grow-1">
+                            <h5 class="card-title mb-1">Человек 4</h5>
+                                <p class="card-text text-muted mb-0">Лицей №97, 11 класс</p>
+                            </div>
+                            <span class="badge bg-success fs-6">5 очков</span>
+                        </div>
+                    </div>
+              </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card mb-3 border-secondary shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-primary fs-5 me-3">4</span>
+                            <div class="flex-grow-1">
+                            <h5 class="card-title mb-1">Человек 4</h5>
+                                <p class="card-text text-muted mb-0">Лицей №97, 11 класс</p>
+                            </div>
+                            <span class="badge bg-success fs-6">5 очков</span>
+                        </div>
+                    </div>
+              </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card mb-3 border-secondary shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-primary fs-5 me-3">4</span>
+                            <div class="flex-grow-1">
+                            <h5 class="card-title mb-1">Человек 4</h5>
+                                <p class="card-text text-muted mb-0">Лицей №97, 11 класс</p>
+                            </div>
+                            <span class="badge bg-success fs-6">5 очков</span>
+                        </div>
+                    </div>
+              </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card mb-3 border-secondary shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-primary fs-5 me-3">4</span>
+                            <div class="flex-grow-1">
+                            <h5 class="card-title mb-1">Человек 4</h5>
+                                <p class="card-text text-muted mb-0">Лицей №97, 11 класс</p>
+                            </div>
+                            <span class="badge bg-success fs-6">5 очков</span>
+                        </div>
+                    </div>
+              </div>
+        </div>
+    </div>
+    
+    
+  </main>
+    <footer class="navbar-custom text-light py-3 mt-5">
+        <div class="container">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Проект ученика МАОУ лицея №97 Герасимова Кирилла. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>
